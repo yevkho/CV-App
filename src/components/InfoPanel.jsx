@@ -56,7 +56,7 @@ function PersonalDetails(props) {
         props.isActive ? "personalDetails" : "personalDetails inactive"
       }
     >
-      <h3>Personal Details</h3>
+      <h3>Personal Detail</h3>
       {props.isActive ? (
         <form onSubmit={handleFormSubmit}>
           <label>
