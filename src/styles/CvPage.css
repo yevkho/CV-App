@@ -1,0 +1,20 @@
+.cvContainer {
+  margin: 20px 20px;
+  padding: 10px 10px;
+  background-color: white;
+
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.personalDetailsCv {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.edu-entry {
+  margin-bottom: 10px;
+}
