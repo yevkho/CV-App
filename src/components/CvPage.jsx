@@ -11,33 +11,31 @@ export default function CvPage({ personalDetails, education, experience }) {
   );
 
   return (
-    <>
-      <div className="cvContainer">
-        <div className="personalDetailsCv">
-          <h2>
-            {personalDetails.firstName} {personalDetails.lastName}
-          </h2>
-          <p>{personalDetails.email}</p>
-          <p>{personalDetails.phone}</p>
-        </div>
-
-        <div className="education">
-          {education.length > 0 && hasEducation && <h2>Education</h2>}
-          {education.map((edu) => (
-            <div key={edu.id} className="edu-entry">
-              {Object.values(edu)
-                .filter((_, index) => index !== 0)
-                .map((value, index) => (
-                  <p key={index}>{value}</p>
-                ))}
-            </div>
-          ))}
-        </div>
-
-        {/* <CvSection title="Education" data={education} /> */}
-        <CvSection title="Experience" data={experience} />
+    <div className="cvContainer">
+      <div className="personalDetailsCv">
+        <h2>
+          {personalDetails.firstName} {personalDetails.lastName}
+        </h2>
+        <p>{personalDetails.email}</p>
+        <p>{personalDetails.phone}</p>
       </div>
-    </>
+
+      <div className="education">
+        {education.length > 0 && hasEducation && <h2>Education</h2>}
+        {education.map((edu) => (
+          <div key={edu.id} className="edu-entry">
+            {Object.values(edu)
+              .filter((_, index) => index !== 0)
+              .map((value, index) => (
+                <p key={index}>{value}</p>
+              ))}
+          </div>
+        ))}
+      </div>
+
+      {/* <CvSection title="Education" data={education} /> */}
+      <CvSection title="Experience" data={experience} />
+    </div>
   );
 }
 

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "../styles/InfoPanel.css";
 
+// INFOPANEL IS REDUNDANT AND COULD BE ELIMINATED AND ITS STATE PUT IN APP COMPONENT
 export default function InfoPanel(props) {
   //State 1 - shared index
   const [sharedIndex, setSharedIndex] = useState(1);
@@ -109,20 +110,9 @@ function EducationDetails(props) {
   //State 1 - form inputs
   const [formInputs, setFormInputs] = useState(props.education);
 
-  [
-    ...props.education,
-    {
-      id: crypto.randomUUID(),
-      school: "",
-      degree: "",
-      startDate: "",
-      endDate: "",
-    },
-  ];
-
-  useEffect(() => {
-    setFormInputs(props.education);
-  }, [props.education]);
+  // useEffect(() => {
+  //   setFormInputs(props.education);
+  // }, [props.education]);
 
   function handleFormInputChange(e) {
     // setFormInputs({ ...formInputs, [e.target.name]: e.target.value });
@@ -147,7 +137,7 @@ function EducationDetails(props) {
 
   //new
   function handleAddEducationButton() {
-    props.setEducation([
+    setFormInputs([
       ...props.education,
       {
         id: crypto.randomUUID(),
@@ -165,6 +155,8 @@ function EducationDetails(props) {
       props.setEducation(
         props.education.filter((edu) => e.target.id !== edu.id)
       );
+      //ADDED THIS TO EXCLUDE useEffect function
+      setFormInputs(formInputs.filter((edu) => e.target.id !== edu.id));
     } else {
       return;
     }
@@ -243,7 +235,7 @@ function EducationDetails(props) {
   );
 }
 
-//3) EDUCATION DETAILS
+//3) EXPERIENCE DETAILS
 function ExperienceDetails(props) {
   //State 1 - form inputs
   const [formInputs, setFormInputs] = useState(props.experience);
